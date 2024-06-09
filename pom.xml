@@ -1,0 +1,196 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>HazelSuite-Automation</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>HazelSuite-Automation</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <selenium>4.15.0</selenium>
+    <testng>7.8.0</testng>
+    <poi>4.1.2</poi>
+    <poi-ooxml>4.1.2</poi-ooxml>
+    <commons-io>2.11.0</commons-io>
+    <webdrivermanager>5.6.2</webdrivermanager>
+    <monte-screen-recorder>0.7.7.0</monte-screen-recorder>
+    <logback-classic>1.4.3</logback-classic>
+    <javax.mail>1.6.2</javax.mail>
+    <extentreports>5.0.9</extentreports>
+    <assertj-core>3.24.2</assertj-core>
+    <extentreports-testng-adapter>1.2.2</extentreports-testng-adapter>
+    <jdk>20</jdk>
+    <sqlite-jdbc>3.42.0.0</sqlite-jdbc>
+  </properties>
+
+
+  <dependencies>
+
+    <!--        selenium-java-->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>jakarta.activation</artifactId>
+          <groupId>com.sun.activation</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>slf4j-api</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>auto-service</artifactId>
+          <groupId>com.google.auto.service</groupId>
+        </exclusion>
+
+      </exclusions>
+
+    </dependency>
+    <!--        testng-->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng}</version>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>slf4j-api</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!--        poi-->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>${poi}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>log4j-api</artifactId>
+          <groupId>org.apache.logging.log4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!--        poi-ooxml-->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>${poi-ooxml}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>log4j-api</artifactId>
+          <groupId>org.apache.logging.log4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!--        commons-io-->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io}</version>
+    </dependency>
+
+    <!--        webdrivermanager-->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>commons-io</artifactId>
+          <groupId>commons-io</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>slf4j-api</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+
+      </exclusions>
+    </dependency>
+
+    <!--        monte-screen-recorder-->
+    <dependency>
+      <groupId>com.github.stephenc.monte</groupId>
+      <artifactId>monte-screen-recorder</artifactId>
+      <version>${monte-screen-recorder}</version>
+    </dependency>
+
+
+    <!--        logback-classic-->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback-classic}</version>
+    </dependency>
+
+    <!--        javax.mail-->
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>${javax.mail}</version>
+    </dependency>
+
+    <!--        extentreports-->
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>${extentreports}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>gson</artifactId>
+          <groupId>com.google.code.gson</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!--        assertj-core-->
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj-core}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- extentreports-testng-adapter -->
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports-testng-adapter</artifactId>
+      <version>${extentreports-testng-adapter}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+    <dependency>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+      <version>${sqlite-jdbc}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.24.2</version>
+      <scope>compile</scope>
+    </dependency>
+
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${jdk}</source>
+          <target>${jdk}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

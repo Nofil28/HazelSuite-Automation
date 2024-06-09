@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <parameter name="url" value="http://transcend-hr.suitestg.hazelsoft.net"/>
+    <parameter name="loginColIndex" value="3"/>
+
+    <listeners>
+        <listener class-name="com.hazelsuite.utilities.Listeners"/>
+        <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerAdapter"/>
+    </listeners>
+
+    <test thread-count="1" name="HR Add Employee and Set Department Head and Team Lead Test">
+        <classes>
+            <class name="com.hazelsuite.base.Setup"/>
+            <class name="com.hazelsuite.testcases.LoginTest">
+                <methods>
+                    <include name="loginValidCredentials" description="Click on Login after providing valid credentials"/>
+                </methods>
+            </class>
+
+            <class name="com.hazelsuite.testcases.EmployeeTest">
+                <methods>
+                    <include name="isEmployeesTabAccessible" description="Check whether employees tab is accessible"/>
+                    <include name="addNewEmployee" description="Add data in the employees tab"/>
+                    <include name="verifyChangeViewEmployees" description="Check whether all columns show in table upon checking all checkboxes"/>
+                </methods>
+            </class>
+
+        </classes>
+
+    </test>
+</suite>

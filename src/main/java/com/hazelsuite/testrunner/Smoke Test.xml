@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test">
+
+    <suite-files>
+        <suite-file path="ASU-Core.xml" />
+        <suite-file path="OSU-Core.xml" />
+        <suite-file path="HR-Company Setup.xml" />
+        <suite-file path="HR-Employees.xml" />
+    </suite-files>
+
+</suite>

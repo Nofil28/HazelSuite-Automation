@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <parameter name="url" value="http://suitestg.hazelsoft.net"/>
+    <parameter name="loginColIndex" value="1"/>
+
+    <listeners>
+        <listener class-name="com.hazelsuite.utilities.Listeners"/>
+        <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerAdapter"/>
+    </listeners>
+
+    <test thread-count="1" name="Add Company Test">
+        <classes>
+            <class name="com.hazelsuite.base.Setup"/>
+            <class name="com.hazelsuite.testcases.LoginTest">
+                <methods>
+                    <include name="loginValidCredentials" description="Click on Login after providing valid credentials"/>
+                </methods>
+            </class>
+            <class name="com.hazelsuite.testcases.CompanyTest">
+            <methods>
+                <include name="isCompaniesTabAccessible" description="Check whether companies tab is accessible"/>
+                <include name="addCompanyInfoData" description="Verify that ASU is able to add data in company info form during company creation"/>
+                <include name="addCompanyAddressData" description="Verify that ASU is able to add data in company address form during company creation"/>
+                <include name="addContactPersonData" description="Verify that ASU is able to add data in contact person form during company creation"/>
+                <include name="addSubscriptionData" description="Verify that ASU is able to select the required subscriptions during company creation"/>
+                <include name="addCompanyLogoAndCreateCompany" description="Verify that ASU is able to add company and create the company"/>
+                <include name="verifyChangeViewCompanies" description="Check whether all columns show in table upon checking all checkboxes"/>
+
+                <include name="verifyEmailAuthentication" description="Verify that email is able to get authenticated or not"/>
+                <include name="verifyIsEmailUnreadAndSubject" description="Verify that email is unread and subject is fine"/>
+                <include name="verifyEmailBodyTextPresence" description="Verify that email body has the confirm password test present"/>
+                <include name="verifyClickOnEmailVerificationBtn" description="Verify that OSU is redirected to verification page upon clicking on verification page"/>
+                <include name="osuEmailVerificationProcess" description="Verify the complete process of OSU verifying his email and setting up password"/>
+            </methods>
+            </class>
+
+        </classes>
+
+    </test>
+</suite>

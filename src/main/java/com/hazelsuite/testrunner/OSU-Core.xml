@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <parameter name="url" value="http://crucial.suitestg.hazelsoft.net"/>
+    <parameter name="loginColIndex" value="2"/>
+
+    <listeners>
+        <listener class-name="com.hazelsuite.utilities.Listeners"/>
+        <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerAdapter"/>
+    </listeners>
+
+    <test thread-count="1" name="OSU Location and Company Info Test">
+        <classes>
+            <class name="com.hazelsuite.base.Setup"/>
+            <class name="com.hazelsuite.testcases.LoginTest">
+                <methods>
+                    <include name="loginValidCredentials" description="Click on Login after providing valid credentials"/>
+                </methods>
+            </class>
+            <class name="com.hazelsuite.testcases.LocationTest">
+                <methods>
+                    <include name="isLocationsTabAccessible" description="Check whether locations tab is accessible"/>
+                    <include name="addNewLocation" description="Add a new location for the company"/>
+                    <include name="editLocationGeneralTab" description="Verify the added values in edit location general tab for the company"/>
+                    <include name="editLocationWorkDaysTab" description="Verify the added values in edit location work days tab for the company"/>
+                    <include name="verifyChangeViewLocations" description="Check whether all columns show in table upon checking all checkboxes"/>
+                </methods>
+            </class>
+            <class name="com.hazelsuite.testcases.CompanyInfoTest">
+                <methods>
+                    <include name="isCompanyInfoGeneralTabAccessible" description="Check whether company info general tab is accessible"/>
+                    <include name="verifyCompanyInformationGeneralTabData" description="Check whether data shown in company information general tab matches with data provided during company creation"/>
+                    <include name="addDataInSettingsTab" description="Test data add in Settings tab of company information page"/>
+                    <include name="verifyCompanyInformationSettingsTabData" description="Check if data shown in settings tab after update matches with what was provided"/>
+                </methods>
+            </class>
+
+        </classes>
+
+    </test>
+</suite>
